@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FDV Control | Estácio Juazeiro do Norte</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--blue:#0757b7;--blue2:#0b72d9;--cyan:#04b7c8;--green:#059669;--greenBg:#ecfdf5;--red:#dc2626;--amber:#d97706;--shadow:0 10px 30px rgba(15,23,42,.08)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
+button,input,select,textarea{font:inherit}.hidden{display:none!important}.shell{min-height:100vh}.top{height:70px;background:linear-gradient(105deg,#073b79,#0757b7);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 26px;box-shadow:0 5px 22px rgba(4,46,94,.2);position:sticky;top:0;z-index:20}.brand{display:flex;align-items:center;gap:14px}.brandMark{width:35px;height:35px;border:2px solid #75e7df;transform:rotate(45deg);border-radius:5px;position:relative}.brandMark:after{content:"";position:absolute;inset:7px;background:#75e7df;border-radius:2px}.brandText b{font-size:20px}.brandText small{display:block;opacity:.82}.userBox{display:flex;align-items:center;gap:12px}.avatar{width:39px;height:39px;border-radius:50%;background:#5d95e8;display:grid;place-items:center;font-weight:900}.logout{border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;border-radius:10px;padding:8px 11px;cursor:pointer}
+.layout{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:calc(100vh - 70px)}aside{background:#072f63;color:#dbeafe;padding:22px 14px}.navTitle{font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:.58;margin:8px 10px}.navBtn{display:flex;align-items:center;gap:10px;width:100%;border:0;background:transparent;color:#dbeafe;padding:11px 12px;border-radius:10px;text-align:left;font-weight:750;cursor:pointer;margin:3px 0}.navBtn.active,.navBtn:hover{background:#0b4f9e;color:#fff}.dot{width:8px;height:8px;border-radius:50%;background:#65d6e0}.main{padding:28px;max-width:1450px;width:100%;margin:auto}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);font-weight:800}.h1{font-size:32px;margin:5px 0 3px}.sub{color:var(--muted);margin:0}.grid{display:grid;gap:15px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.metricLabel{font-size:12px;color:var(--muted);font-weight:700}.metric{font-size:30px;font-weight:900;margin-top:5px}.metric.sm{font-size:24px}.blueCard{background:linear-gradient(135deg,#084b9d,#0874d1);color:#fff;border:0}.greenCard{background:linear-gradient(135deg,#087b60,#08a37c);color:#fff;border:0}.soft{background:#f8fafc}.good{background:var(--greenBg);border-color:#a7f3d0}.progress{height:9px;background:#e7edf5;border-radius:999px;overflow:hidden;margin-top:10px}.progress i{display:block;height:100%;background:linear-gradient(90deg,#0ea5e9,#10b981);border-radius:999px}.pill{display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;background:#eef2ff;color:#3730a3;font-size:12px;font-weight:800}.pill.green{background:#dcfce7;color:#166534}.pill.amber{background:#fffbeb;color:#92400e}.row{display:flex;align-items:center;justify-content:space-between;gap:12px}.btn{border:0;border-radius:10px;padding:9px 13px;font-weight:800;cursor:pointer;background:#e8eef8;color:#164e8d}.btn.primary{background:#0867c3;color:#fff}.btn.green{background:#07966f;color:#fff}.btn.danger{background:#fee2e2;color:#991b1b}.btn.ghost{background:#fff;border:1px solid var(--line)}.btn:disabled{opacity:.45;cursor:not-allowed}
+table{width:100%;border-collapse:collapse}th,td{padding:11px 9px;border-bottom:1px solid var(--line);text-align:left;font-size:13px}th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}.num{font-weight:800}.money{color:#047857;font-weight:900}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase}.field input,.field select,.field textarea{width:100%;padding:10px 11px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:#0b72d9;box-shadow:0 0 0 3px rgba(11,114,217,.1)}.formGrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.sectionTitle{font-size:19px;margin:0 0 12px}.sep{height:1px;background:var(--line);margin:16px 0}.notice{padding:12px 14px;border-radius:12px;background:#eff6ff;color:#1e40af;font-weight:650;font-size:13px}.error{padding:12px 14px;border-radius:12px;background:#fef2f2;color:#991b1b;font-size:13px}.success{padding:12px 14px;border-radius:12px;background:#ecfdf5;color:#065f46;font-size:13px}
+.authWrap{min-height:100vh;display:grid;place-items:center;background:linear-gradient(145deg,#062d5e,#0757b7 55%,#08a8b3)}.authCard{width:min(440px,92vw);background:#fff;border-radius:24px;padding:28px;box-shadow:0 30px 80px rgba(2,24,55,.35)}.authLogo{display:flex;align-items:center;gap:12px;margin-bottom:20px}.authLogo .brandMark{background:#0757b7}.authCard h1{margin:0 0 5px}.authTabs{display:flex;background:#eef2f7;border-radius:12px;padding:4px;margin:18px 0}.authTabs button{flex:1;border:0;background:transparent;padding:9px;border-radius:9px;font-weight:800;cursor:pointer}.authTabs button.active{background:#fff;box-shadow:0 2px 8px rgba(15,23,42,.08);color:#0757b7}.authCard .field{margin:11px 0}.full{width:100%}.mini{font-size:12px;color:var(--muted)}.viewBanner{padding:11px 14px;background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:12px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}.focusGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.focusCard{border:1px solid var(--line);border-radius:14px;padding:14px}.focusCard input,.focusCard textarea{width:100%;margin-top:7px;padding:8px;border:1px solid #cbd5e1;border-radius:8px}.modGrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.mod{padding:13px;border:1px solid var(--line);border-radius:14px;background:#f8fafc;text-align:center}.mod b{display:block;font-size:23px;margin-top:5px}.loader{min-height:60vh;display:grid;place-items:center;color:var(--muted);font-weight:700}
+@media(max-width:1050px){.layout{grid-template-columns:1fr}aside{display:none}.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:1fr}.focusGrid{grid-template-columns:1fr}.formGrid,.modGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.top{padding:0 14px}.brandText small{display:none}.main{padding:16px}.g2,.g4{grid-template-columns:1fr}.formGrid,.modGrid{grid-template-columns:1fr}.h1{font-size:27px}.tableWrap{overflow:auto}.userBox .name{display:none}}
+</style>
+</head>
+<body>
+<div id="auth" class="authWrap">
+  <div class="authCard">
+    <div class="authLogo"><span class="brandMark"></span><div><b>FDV Control</b><div class="mini">Estácio Juazeiro do Norte</div></div></div>
+    <h1 id="authTitle">Entrar</h1><p class="sub">Gestão de metas, produção e remuneração variável.</p>
+    <div class="authTabs"><button id="tabLogin" class="active">Entrar</button><button id="tabRegister">Criar conta</button></div>
+    <div id="authMsg"></div>
+    <div id="nameField" class="field hidden"><label>Nome</label><input id="fullName" placeholder="Seu nome"/></div>
+    <div class="field"><label>E-mail</label><input id="email" type="email" placeholder="seu.email@estacio.br"/></div>
+    <div class="field"><label>Senha</label><input id="password" type="password" placeholder="Mínimo 6 caracteres"/></div>
+    <button id="authSubmit" class="btn primary full">Entrar</button>
+    <button id="forgotBtn" class="btn ghost full" style="margin-top:9px">Esqueci minha senha</button>
+    <p class="mini" style="margin-top:16px">Acesso autorizado para Caike e os consultores cadastrados no FDV Control.</p>
+  </div>
+</div>
+
+<div id="app" class="shell hidden">
+<header class="top">
+  <div class="brand"><span class="brandMark"></span><div class="brandText"><b>FDV Control</b><small>Gestão Comercial | Força de Vendas</small></div></div>
+  <div class="userBox"><div class="avatar" id="avatar">CL</div><div class="name"><b id="userName">Usuário</b><small id="userRole" style="display:block;opacity:.8"></small></div><button id="logoutBtn" class="logout">Sair</button></div>
+</header>
+<div class="layout">
+<aside>
+  <div class="navTitle">Navegação</div>
+  <button class="navBtn active" data-view="dashboard"><span class="dot"></span>Dashboard</button>
+  <button class="navBtn managerOnly" data-view="focus"><span class="dot"></span>Foco do Dia</button>
+  <button class="navBtn managerOnly" data-view="adjust"><span class="dot"></span>Ajuste Gerencial</button>
+  <button class="navBtn managerOnly" data-view="management"><span class="dot"></span>Gestão</button>
+</aside>
+<main class="main"><div id="content" class="loader">Carregando...</div></main>
+</div>
+</div>
+
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+const supabase = createClient('https://toiayuqzysfgfvzdthik.supabase.co','sb_publishable_ZqseWozHaIHcQ35V0v7ytw_C9ccalE4');
+const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)];
+let mode='login', profile=null, cycle=null, managerRows=[], managerProjection=null, viewAs=null;
+const today=()=>new Date().toISOString().slice(0,10);
+const brl=v=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(Number(v||0));
+const pct=v=>Number(v||0).toLocaleString('pt-BR',{maximumFractionDigits:2})+'%';
+function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
+function authMessage(text,type='error'){ $('#authMsg').innerHTML='<div class="'+type+'">'+esc(text)+'</div>'; }
+function setAuthMode(m){mode=m; const reg=m==='register'; $('#tabLogin').classList.toggle('active',!reg);$('#tabRegister').classList.toggle('active',reg);$('#nameField').classList.toggle('hidden',!reg);$('#authTitle').textContent=reg?'Criar conta':'Entrar';$('#authSubmit').textContent=reg?'Criar conta':'Entrar';$('#authMsg').innerHTML='';}
+$('#tabLogin').onclick=()=>setAuthMode('login'); $('#tabRegister').onclick=()=>setAuthMode('register');
+$('#authSubmit').onclick=async()=>{
+ const email=$('#email').value.trim(), password=$('#password').value, full_name=$('#fullName').value.trim();
+ if(!email||!password)return authMessage('Informe e-mail e senha.');
+ $('#authSubmit').disabled=true;
+ try{
+  let res;
+  if(mode==='register') res=await supabase.auth.signUp({email,password,options:{data:{full_name}}});
+  else res=await supabase.auth.signInWithPassword({email,password});
+  if(res.error) throw res.error;
+  if(mode==='register'&&!res.data.session){authMessage('Conta criada. Confira seu e-mail para confirmar o cadastro.','success');}
+  else await startApp();
+ }catch(e){authMessage(e.message||'Não foi possível autenticar.');}
+ finally{$('#authSubmit').disabled=false;}
+};
+$('#forgotBtn').onclick=async()=>{
+ const email=$('#email').value.trim(); if(!email)return authMessage('Digite seu e-mail primeiro.');
+ const {error}=await supabase.auth.resetPasswordForEmail(email,{redirectTo:location.href});
+ if(error)authMessage(error.message);else authMessage('Enviamos as instruções de redefinição para seu e-mail.','success');
+};
+$('#logoutBtn').onclick=async()=>{await supabase.auth.signOut();location.reload();};
+
+async function startApp(){
+ const {data:{user}}=await supabase.auth.getUser();
+ if(!user)return;
+ const {data:p,error}=await supabase.from('profiles').select('*').eq('id',user.id).single();
+ if(error||!p){authMessage('Seu usuário existe, mas ainda não está vinculado ao FDV Control.');return;}
+ profile=p;
+ const {data:cy,error:ce}=await supabase.from('cycles').select('*').eq('active',true).eq('business_unit','grad').eq('period_type','monthly').order('start_date',{ascending:false}).limit(1).single();
+ if(ce)throw ce; cycle=cy;
+ $('#auth').classList.add('hidden');$('#app').classList.remove('hidden');
+ $('#userName').textContent=profile.full_name;$('#userRole').textContent=profile.role==='manager'?'Gerente Comercial':'Consultor';
+ $('#avatar').textContent=profile.full_name.split(' ').map(x=>x[0]).join('').slice(0,2).toUpperCase();
+ if(profile.role!=='manager')$$('.managerOnly').forEach(x=>x.classList.add('hidden'));
+ await renderDashboard();
+}
+async function loadManager(){
+ const [{data:rows,error:e1},{data:mp,error:e2}]=await Promise.all([
+  supabase.from('consultant_dashboard').select('*').eq('cycle_id',cycle.id).order('full_name'),
+  supabase.from('manager_rv_projection').select('*').eq('cycle_id',cycle.id).single()
+ ]);
+ if(e1)throw e1;if(e2)throw e2;managerRows=rows||[];managerProjection=mp;
+}
+async function loadConsultant(consultantId){
+ const q=supabase.from('consultant_dashboard').select('*').eq('cycle_id',cycle.id);
+ const {data,error}=consultantId?await q.eq('consultant_id',consultantId).single():await q.single();
+ if(error)throw error;return data;
+}
+function progress(v){return Math.min(100,Math.max(0,Number(v||0)));}
+function consultantPanel(r,readOnly=false){
+ const next=r.next_tier_pct?'<b>+'+r.mf_to_next_tier+' MF</b> para '+pct(r.next_tier_pct):'<b>Faixa máxima alcançada</b>';
+ return '<div class="grid g4" style="margin-top:16px">'+
+ '<div class="card blueCard"><div class="metricLabel" style="color:#dbeafe">Antecipação projetada</div><div class="metric">'+brl(r.rv_anticipation_60)+'</div><div class="mini">60% da RV projetada</div></div>'+
+ '<div class="card"><div class="metricLabel">Meta oficial</div><div class="metric">'+r.total_mf+'/'+r.mf_goal+' MF</div><div class="mini">'+pct(r.attainment_pct)+' de atingimento</div><div class="progress"><i style="width:'+progress(r.attainment_pct)+'%"></i></div></div>'+
+ '<div class="card"><div class="metricLabel">Meta do dia</div><div class="metric">'+(r.mf_target_today||0)+' MF</div><div class="mini">Baseada somente na meta oficial</div></div>'+
+ '<div class="card"><div class="metricLabel">Próxima faixa</div><div class="metric sm">'+next+'</div><div class="mini">Aumenta o valor da RV por matrícula</div></div></div>'+
+ '<div class="grid g2" style="margin-top:15px"><div class="card"><h3 class="sectionTitle">Matrículas por modalidade</h3><div class="modGrid">'+
+ [['Presencial',r.presencial],['Semipresencial',r.semi],['EAD',r.ead],['Ao Vivo',r.ao_vivo],['Med. Vet/Odonto',r.medvet_odonto]].map(x=>'<div class="mod">'+x[0]+'<b>'+x[1]+'</b></div>').join('')+
+ '</div></div><div class="card"><h3 class="sectionTitle">Minha RV</h3><div class="row"><span>RV total projetada</span><b>'+brl(r.rv_total_projected)+'</b></div><div class="sep"></div><div class="row"><span>Antecipação 60%</span><b class="money">'+brl(r.rv_anticipation_60)+'</b></div><div class="sep"></div><div class="row"><span>Saldo potencial 40%</span><b>'+brl(r.rv_balance_40)+'</b></div><div class="sep"></div><div class="row"><span>Adicional de núcleo</span><span class="pill green">'+pct(r.nucleus_bonus_pct)+'</span></div></div></div>'+
+ (!readOnly?'<div id="consultantActions"></div>':'');
+}
+async function renderDashboard(){
+ setActiveNav('dashboard');const c=$('#content');c.innerHTML='<div class="loader">Carregando painel...</div>';
+ try{
+  if(profile.role==='manager'){
+   await loadManager();
+   if(viewAs){const r=managerRows.find(x=>x.consultant_id===viewAs);c.innerHTML='<div class="viewBanner"><b>Visualizando como '+esc(r.full_name)+'</b><button class="btn ghost" id="backManager">Voltar ao painel gerencial</button></div><div class="eyebrow">Modo somente leitura</div><h1 class="h1">'+esc(r.full_name)+'</h1><p class="sub">Mesma visão individual do consultor, sem alterar os dados.</p>'+consultantPanel(r,true);$('#backManager').onclick=()=>{viewAs=null;renderDashboard()};return;}
+   const total=managerRows.reduce((a,x)=>a+Number(x.total_mf||0),0);
+   const unitGoal=24;
+   c.innerHTML='<div class="eyebrow">Painel gerencial</div><h1 class="h1">Resultado da FDV</h1><p class="sub">'+esc(cycle.label)+' · Estácio Juazeiro do Norte</p>'+
+   '<div class="grid g4" style="margin-top:16px"><div class="card blueCard"><div class="metricLabel" style="color:#dbeafe">Núcleo</div><div class="metric">'+total+'/'+unitGoal+' MF</div><div class="mini">'+pct(total*100/unitGoal)+' da meta oficial</div></div>'+
+   '<div class="card greenCard"><div class="metricLabel" style="color:#d1fae5">Minha RV Graduação</div><div class="metric">'+brl(managerProjection.rv_projected)+'</div><div class="mini">'+pct(managerProjection.total_salary_pct)+' do salário-base</div></div>'+
+   '<div class="card"><div class="metricLabel">P+S</div><div class="metric">'+pct(managerProjection.pres_semi_pct)+'</div><div class="mini">'+managerProjection.pres_semi_mf+'/'+managerProjection.pres_semi_goal+' MF</div></div>'+
+   '<div class="card"><div class="metricLabel">Digital / EAD</div><div class="metric">'+pct(managerProjection.digital_pct)+'</div><div class="mini">'+managerProjection.digital_mf+'/'+managerProjection.digital_goal+' MF</div></div></div>'+
+   '<div class="card" style="margin-top:15px"><h3 class="sectionTitle">Equipe</h3><div class="tableWrap"><table><thead><tr><th>Consultor</th><th>MF</th><th>Atingimento</th><th>Meta do dia</th><th>Antecipação</th><th>Próxima faixa</th><th></th></tr></thead><tbody>'+
+   managerRows.map(r=>'<tr><td><b>'+esc(r.full_name)+'</b></td><td class="num">'+r.total_mf+'/'+r.mf_goal+'</td><td>'+pct(r.attainment_pct)+'</td><td>'+r.mf_target_today+' MF</td><td class="money">'+brl(r.rv_anticipation_60)+'</td><td>'+(r.next_tier_pct?'+'+r.mf_to_next_tier+' MF → '+pct(r.next_tier_pct):'Máxima')+'</td><td><button class="btn viewAs" data-id="'+r.consultant_id+'">Visualizar como</button></td></tr>').join('')+
+   '</tbody></table></div></div>';
+   $$('.viewAs').forEach(b=>b.onclick=()=>{viewAs=b.dataset.id;renderDashboard()});
+  } else {
+   const r=await loadConsultant(null);
+   const {data:f}=await supabase.from('daily_focus').select('*').eq('cycle_id',cycle.id).eq('consultant_id',r.consultant_id).eq('focus_date',today()).in('status',['validated','achieved']).maybeSingle();
+   c.innerHTML=(f?'<div class="card '+(f.status==='achieved'?'good':'')+'"><div class="eyebrow">Foco do Dia</div><div class="metric sm">'+esc(f.message)+'</div><div class="mini">Meta validada: +'+f.quantity+' MF</div></div>':'')+
+   '<div class="eyebrow" style="margin-top:16px">Visão do consultor</div><h1 class="h1">Olá, '+esc(r.full_name)+'</h1><p class="sub">Quanto quero ganhar, quanto preciso vender e o que tenho que fazer hoje.</p>'+consultantPanel(r,false);
+   await renderConsultantActions(r);
+  }
+ }catch(e){c.innerHTML='<div class="error">'+esc(e.message||'Erro ao carregar o painel')+'</div>';}
+}
+async function renderConsultantActions(r){
+ const host=$('#consultantActions');if(!host)return;
+ const [{data:entries},{data:pg}]=await Promise.all([
+  supabase.from('production_entries').select('modality,quantity').eq('cycle_id',cycle.id).eq('consultant_id',r.consultant_id).eq('production_date',today()),
+  supabase.from('personal_financial_goals').select('*').eq('cycle_id',cycle.id).eq('consultant_id',r.consultant_id).maybeSingle()
+ ]);
+ const sums={presencial:0,semi:0,ead:0,ao_vivo:0,medvet_odonto:0};(entries||[]).forEach(x=>sums[x.modality]+=Number(x.quantity));
+ host.innerHTML='<div class="grid g2" style="margin-top:15px"><div class="card"><h3 class="sectionTitle">Meta financeira pessoal</h3><p class="mini">Essa meta não altera sua Meta do Dia oficial.</p><div class="field"><label>Quanto quero receber de RV</label><input id="personalGoal" type="number" step="0.01" value="'+(pg?.target_value||'')+'" placeholder="Ex.: 1000"/></div><div class="row" style="margin-top:10px"><span class="mini">'+(pg?'Falta '+brl(Math.max(0,Number(pg.target_value)-Number(r.rv_anticipation_60))):'Ainda não definida')+'</span><button id="savePersonal" class="btn primary">Salvar</button></div></div>'+
+ '<div class="card"><h3 class="sectionTitle">Produção de hoje</h3><p class="mini">Informe o total do dia em cada modalidade. Você pode corrigir enquanto for hoje.</p><div class="formGrid">'+
+ fieldNumber('p_pres','Presencial',sums.presencial)+fieldNumber('p_semi','Semi',sums.semi)+fieldNumber('p_ead','EAD',sums.ead)+fieldNumber('p_aov','Ao Vivo',sums.ao_vivo)+fieldNumber('p_med','MedVet/Odonto',sums.medvet_odonto)+
+ '</div><div class="row" style="margin-top:11px"><span id="prodMsg" class="mini"></span><button id="saveProd" class="btn green">Atualizar produção</button></div></div></div>';
+ $('#savePersonal').onclick=async()=>{const v=Number($('#personalGoal').value);if(Number.isNaN(v)||v<0)return;const {error}=await supabase.from('personal_financial_goals').upsert({cycle_id:cycle.id,consultant_id:r.consultant_id,target_value:v},{onConflict:'cycle_id,consultant_id'});if(error)alert(error.message);else renderDashboard();};
+ $('#saveProd').onclick=async()=>{const args={p_date:today(),p_presencial:num('#p_pres'),p_semi:num('#p_semi'),p_ead:num('#p_ead'),p_ao_vivo:num('#p_aov'),p_medvet_odonto:num('#p_med')};const {error}=await supabase.rpc('set_my_daily_production',args);if(error)$('#prodMsg').textContent=error.message;else renderDashboard();};
+}
+function fieldNumber(id,label,val){return '<div class="field"><label>'+label+'</label><input id="'+id+'" type="number" min="0" value="'+Number(val||0)+'"/></div>'}
+function num(sel){return Math.max(0,parseInt($(sel).value||'0',10)||0)}
+
+async function renderFocus(){
+ setActiveNav('focus');const c=$('#content');c.innerHTML='<div class="loader">Carregando focos...</div>';await loadManager();
+ const {data:existing}=await supabase.from('daily_focus').select('*').eq('cycle_id',cycle.id).eq('focus_date',today());
+ const map=Object.fromEntries((existing||[]).map(x=>[x.consultant_id,x]));
+ c.innerHTML='<div class="eyebrow">Insight gerencial</div><h1 class="h1">Foco do Dia</h1><p class="sub">O consultor só enxerga depois que você validar.</p><div class="focusGrid" style="margin-top:16px">'+managerRows.map(r=>{const f=map[r.consultant_id];const q=f?.quantity||(r.mf_to_next_tier||r.mf_target_today||1);const msg=f?.message||('Com +'+q+' MF, você pode avançar na sua faixa de remuneração variável.');return '<div class="focusCard"><div class="row"><b>'+esc(r.full_name)+'</b>'+(f?'<span class="pill green">'+esc(f.status)+'</span>':'<span class="pill amber">Pendente</span>')+'</div><div class="field"><label>Quantidade MF</label><input class="fq" data-id="'+r.consultant_id+'" type="number" min="1" value="'+q+'"/></div><div class="field"><label>Mensagem</label><textarea class="fm" data-id="'+r.consultant_id+'">'+esc(msg)+'</textarea></div><button class="btn primary validateFocus" data-id="'+r.consultant_id+'" style="margin-top:8px">Salvar e validar</button></div>'}).join('')+'</div>';
+ $$('.validateFocus').forEach(b=>b.onclick=async()=>{const id=b.dataset.id;const q=Number($('.fq[data-id="'+id+'"]').value);const msg=$('.fm[data-id="'+id+'"]').value;const {error}=await supabase.from('daily_focus').upsert({cycle_id:cycle.id,focus_date:today(),consultant_id:id,quantity:q,message:msg,status:'validated',validated_at:new Date().toISOString()},{onConflict:'cycle_id,focus_date,consultant_id'});if(error)alert(error.message);else renderFocus();});
+}
+async function renderAdjust(){
+ setActiveNav('adjust');const c=$('#content');await loadManager();
+ c.innerHTML='<div class="eyebrow">Exceção gerencial</div><h1 class="h1">Ajuste Gerencial</h1><p class="sub">Corrija a produção por consultor e data. O sistema registra antes/depois no histórico.</p>'+
+ '<div class="card" style="margin-top:16px"><div class="grid g2"><div class="field"><label>Consultor</label><select id="adjConsult">'+managerRows.map(r=>'<option value="'+r.consultant_id+'">'+esc(r.full_name)+'</option>').join('')+'</select></div><div class="field"><label>Data</label><input id="adjDate" type="date" value="'+today()+'"/></div></div><div id="adjFields" style="margin-top:14px"></div></div>';
+ $('#adjConsult').onchange=loadAdj;$('#adjDate').onchange=loadAdj;await loadAdj();
+}
+async function loadAdj(){
+ const id=$('#adjConsult').value,date=$('#adjDate').value;
+ const {data}=await supabase.from('production_entries').select('modality,quantity').eq('cycle_id',cycle.id).eq('consultant_id',id).eq('production_date',date);
+ const s={presencial:0,semi:0,ead:0,ao_vivo:0,medvet_odonto:0};(data||[]).forEach(x=>s[x.modality]+=Number(x.quantity));
+ $('#adjFields').innerHTML='<div class="formGrid">'+fieldNumber('a_pres','Presencial',s.presencial)+fieldNumber('a_semi','Semi',s.semi)+fieldNumber('a_ead','EAD',s.ead)+fieldNumber('a_aov','Ao Vivo',s.ao_vivo)+fieldNumber('a_med','MedVet/Odonto',s.medvet_odonto)+'</div><div class="row" style="margin-top:12px"><span id="adjMsg" class="mini">Valores atuais registrados para a data selecionada.</span><button id="saveAdj" class="btn primary">Salvar correção</button></div>';
+ $('#saveAdj').onclick=async()=>{const {error}=await supabase.rpc('apply_manager_adjustment',{p_cycle_id:cycle.id,p_consultant_id:id,p_date:date,p_presencial:num('#a_pres'),p_semi:num('#a_semi'),p_ead:num('#a_ead'),p_ao_vivo:num('#a_aov'),p_medvet_odonto:num('#a_med')});if(error)$('#adjMsg').textContent=error.message;else{$('#adjMsg').textContent='Ajuste salvo.';await loadAdj();}};
+}
+async function renderManagement(){
+ setActiveNav('management');const c=$('#content');await loadManager();
+ const {data:g}=await supabase.from('goals').select('*').eq('cycle_id',cycle.id).eq('scope','unit').eq('metric_code','mf_total').single();
+ c.innerHTML='<div class="eyebrow">Gestão</div><h1 class="h1">Ciclo e metas</h1><p class="sub">Configuração atual do ciclo replicado do Base.</p>'+
+ '<div class="grid g2" style="margin-top:16px"><div class="card"><h3 class="sectionTitle">'+esc(cycle.label)+'</h3><div class="row"><span>Meta oficial da unidade</span><b>'+g.target+' MF</b></div><div class="sep"></div><div class="row"><span>Meta individual</span><b>8 MF</b></div><div class="sep"></div><div class="row"><span>Regra</span><span class="pill">Meta unidade ÷ consultores</span></div></div>'+
+ '<div class="card"><h3 class="sectionTitle">Minha meta gerencial</h3><div class="row"><span>Presencial + Semi</span><b>'+managerProjection.pres_semi_goal+' MF</b></div><div class="sep"></div><div class="row"><span>Digital / EAD</span><b>'+managerProjection.digital_goal+' MF</b></div><div class="sep"></div><div class="row"><span>Salário-base</span><b>'+brl(managerProjection.salary_base)+'</b></div></div></div>'+
+ '<div class="notice" style="margin-top:15px">Nesta réplica inicial, novembro está preservado exatamente como validamos. A edição completa de ciclos/metas entra depois que o MVP estiver sendo usado.</div>';
+}
+function setActiveNav(v){$$('.navBtn').forEach(b=>b.classList.toggle('active',b.dataset.view===v));}
+$$('.navBtn').forEach(b=>b.onclick=()=>{const v=b.dataset.view;if(v==='dashboard')renderDashboard();if(v==='focus')renderFocus();if(v==='adjust')renderAdjust();if(v==='management')renderManagement();});
+supabase.auth.onAuthStateChange((event,session)=>{if(event==='SIGNED_IN'&&session)startApp();});
+const {data:{session}}=await supabase.auth.getSession();if(session)startApp();
+</script>
+</body>
+</html>
